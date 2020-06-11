@@ -1,0 +1,26 @@
+ProgramArgs = ["dnsmasq","--no-daemon"]
+# Interface to serve web UI. Warning: defaults to ALL interfaces.
+Host = "0.0.0.0"
+
+# Port to serve web UI
+Port = 8080
+
+# 登录管理dns的用户名密码 web UI
+User = "dns_user"
+Pass = "dns_pass"
+
+# 允许哪些ip地址范围访问webui，安全配置选项，全部清空表示不做任何限制
+# For example, ["10.0.0.0/8"]
+# AllowedIPs = ["133.3.103.0/24","133.3.5.0/24"]
+AllowedIPs = [ ]
+Log = "both"
+
+# OnExit dictates what action to take when the process exits:
+# "ignore" - ignore and wait for manual restart via the web UI
+# "proxy" - also exit webproc with the same exit code
+# "restart" - automatically restart with exponential backoff time delay between failed restarts
+OnExit = "restart"
+
+ConfigurationFiles = ["/etc/dnsmasq.conf"]
+
+RestartTimeout = "30s"
