@@ -27,11 +27,12 @@ RUN mkdir -p /app
 WORKDIR /app
 
 # Install gems
-RUN cd /tmp/  && git clone --depth=1 https://github.com/openstreetmap/openstreetmap-website.git
+RUN cd /tmp/  && git clone --depth=1 -b docker https://github.com/zhaolibingit/openstreetmap-website.git
 RUN cp -r /tmp/openstreetmap-website/* /app/
 RUN touch /app/config/settings.local.yml
 RUN cp /app/config/example.storage.yml /app/config/storage.yml
 RUN cp /app/config/example.database.yml /app/config/database.yml
+
 
 RUN bundle install
 # Setup local
