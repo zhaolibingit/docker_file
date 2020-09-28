@@ -32,7 +32,7 @@ RUN cp -r /tmp/openstreetmap-website/* /app/
 RUN touch /app/config/settings.local.yml
 RUN cp /app/config/example.storage.yml /app/config/storage.yml
 RUN cp /app/config/example.database.yml /app/config/database.yml
-
+RUN rm -rf /tmp/*
 
 RUN bundle install
 # Setup local
